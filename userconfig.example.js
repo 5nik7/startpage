@@ -10,8 +10,8 @@ let palette = initThemeSystem(preferredLightTheme, preferredDarkTheme);
 const default_configuration = {
   overrideStorage: true,
   temperature: {
-    location: "Yakima",
-    scale: "F",
+    location: "London",
+    scale: "C",
     // Optional OpenWeatherMap API key — get a free one at https://openweathermap.org/api
     // Leave empty to keep the placeholder and skip the network request.
     appId: "",
@@ -34,10 +34,10 @@ const default_configuration = {
       d: ["https://duckduckgo.com/?q=", "DuckDuckGo"],
       g: ["https://google.com/search?q=", "Google"],
     },
-    default: "g",
+    default: "d",
   },
   keybindings: {
-    s: "search-bar",
+    "s": "search-bar",
   },
   disabled: [],
   localIcons: true,
@@ -49,6 +49,23 @@ const default_configuration = {
       name: "myself",
       background_url: "src/img/banners/banner_11.gif",
       categories: [
+        {
+          name: "bookmarks",
+          links: [
+            {
+              name: "raindrop",
+              url: "https://app.raindrop.io",
+              icon: "droplet-bolt",
+              icon_color: palette.green,
+            },
+            {
+              name: "musicForProgramming();",
+              url: "https://musicforprogramming.net",
+              icon: "binary-tree",
+              icon_color: palette.peach,
+            },
+          ],
+        },
         {
           name: "workspace",
           links: [
@@ -149,13 +166,60 @@ const default_configuration = {
           ],
         },
         {
+          name: "challenges",
+          links: [
+            {
+              name: "kaggle",
+              url: "https://www.kaggle.com",
+              icon: "brain",
+              icon_color: palette.green,
+            },
+            {
+              name: "leetcode",
+              url: "https://leetcode.com",
+              icon: "code-plus",
+              icon_color: palette.peach,
+            },
+            {
+              name: "exercism",
+              url: "https://exercism.org",
+              icon: "code-minus",
+              icon_color: palette.red,
+            },
+            {
+              name: "aoc",
+              url: "https://adventofcode.com",
+              icon: "brand-linktree",
+              icon_color: palette.blue,
+            },
+          ],
+        },
+        {
           name: "resources",
           links: [
+            {
+              name: "dou",
+              url: "https://dou.ua",
+              icon: "brand-prisma",
+              icon_color: palette.green,
+            },
             {
               name: "hackernews",
               url: "https://news.ycombinator.com",
               icon: "brand-redhat",
               icon_color: palette.peach,
+            },
+            {
+              name: "uber engineering",
+              url: "https://www.uber.com/en-GB/blog/london/engineering",
+              icon: "brand-uber",
+              icon_color: palette.red,
+            },
+            {
+              name: "netflix tech blog",
+              url: "https://netflixtechblog.com",
+              icon: "brand-netflix",
+              icon_color: palette.blue,
             },
           ],
         },
@@ -192,6 +256,12 @@ const default_configuration = {
           name: "gaming",
           links: [
             {
+              name: "infiniteBacklog",
+              url: "https://infinitebacklog.net",
+              icon: "device-gamepad",
+              icon_color: palette.green,
+            },
+            {
               name: "steam",
               url: "https://store.steampowered.com",
               icon: "brand-steam",
@@ -215,6 +285,12 @@ const default_configuration = {
           name: "video",
           links: [
             {
+              name: "anilist",
+              url: "https://anilist.co/home",
+              icon: "brand-funimation",
+              icon_color: palette.green,
+            },
+            {
               name: "youtube",
               url: "https://www.youtube.com",
               icon: "brand-youtube",
@@ -225,6 +301,12 @@ const default_configuration = {
               url: "https://www.patreon.com",
               icon: "brand-patreon",
               icon_color: palette.red,
+            },
+            {
+              name: "kyivstar",
+              url: "https://tv.kyivstar.ua",
+              icon: "star-filled",
+              icon_color: palette.blue,
             },
           ],
         },

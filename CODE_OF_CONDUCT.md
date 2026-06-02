@@ -1,18 +1,5 @@
 # Contributor Covenant Code of Conduct
 
-- [Contributor Covenant Code of Conduct](#contributor-covenant-code-of-conduct)
-  - [Our Pledge](#our-pledge)
-  - [Our Standards](#our-standards)
-  - [Enforcement Responsibilities](#enforcement-responsibilities)
-  - [Scope](#scope)
-  - [Enforcement](#enforcement)
-  - [Enforcement Guidelines](#enforcement-guidelines)
-    - [Correction](#correction)
-    - [Warning](#warning)
-    - [Temporary Ban](#temporary-ban)
-    - [Permanent Ban](#permanent-ban)
-  - [Attribution](#attribution)
-
 ## Our Pledge
 
 We as members, contributors, and leaders pledge to make participation in our community a
@@ -44,9 +31,7 @@ Examples of unacceptable behaviour include:
 
 ## Enforcement Responsibilities
 
-Community leaders are responsible for clarifying and enforcing our standards of acceptable behavior
-and will take appropriate and fair corrective action in response to any behaviour that they deem
-inappropriate, threatening, offensive, or harmful.
+Community leaders are responsible for clarifying and enforcing our standards of acceptable behaviour and will take appropriate and fair corrective action in response to any behaviour they deem inappropriate, threatening, offensive, or harmful.
 
 Community leaders have the right and responsibility to remove, edit, or reject comments, commits,
 code, wiki edits, issues, and other contributions that are not aligned with this Code of Conduct, and
@@ -78,18 +63,13 @@ any action they deem in violation of this Code of Conduct:
 **Community Impact**: Use of inappropriate language or other behaviour deemed unprofessional or
 unwelcome in the community.
 
-**Consequence**: A private, written warning from community leaders, providing clarity around the
-nature of the violation and an explanation of why the behaviour was inappropriate. A public apology
-may be requested.
+**Consequence**: A private, written warning from community leaders providing clarity about the nature of the violation and an explanation of why the behaviour was inappropriate. A public apology may be requested.
 
 ### Warning
 
 **Community Impact**: A violation through a single incident or series of actions.
 
-**Consequence**: A warning with consequences for continued behaviour. No interaction with the people
-involved, including unsolicited interaction with those enforcing the Code of Conduct, for a
-specified period. This includes avoiding interactions in community spaces as well as
-external channels like social media. Violating these terms may lead to a temporary or permanent ban.
+**Consequence**: A warning with consequences for any continued behaviour. No interaction with the people involved is allowed during this period, including unsolicited interaction with those enforcing the Code of Conduct. This includes avoiding interactions in community spaces as well as external channels like social media. Violating these terms may lead to a temporary or permanent ban.
 
 ### Temporary Ban
 

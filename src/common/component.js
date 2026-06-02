@@ -1,25 +1,52 @@
+// Global registry of rendered components
 const RenderedComponents = {};
 
+// Base class for all startpage components, providing shadow DOM, resource management, and rendering utilities
+// Glossary: Component, Resource, Shadow DOM
 class Component extends HTMLElement {
+  // Element references for DOM manipulation
   refs = {};
 
   resources = {
+    /** Google Fonts and other web fonts */
     fonts: {
       roboto: '<link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700" rel="stylesheet">',
       nunito: '<link href="https://fonts.googleapis.com/css?family=Nunito:200" rel="stylesheet">',
       raleway: '<link href="https://fonts.googleapis.com/css?family=Raleway:600" rel="stylesheet">',
     },
+    /** Local font alternatives */
+    localFonts: {
+      roboto: '<link rel="stylesheet" href="src/fonts/roboto-local.css">',
+      nunito: '<link rel="stylesheet" href="src/fonts/nunito-local.css">',
+      raleway: '<link rel="stylesheet" href="src/fonts/raleway-local.css">',
+    },
+    /** Icon font libraries */
     icons: {
       material:
         '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">',
-      cryptofont: '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/monzanifabio/cryptofont/cryptofont.css">',
+      materialLocal: '<link rel="stylesheet" href="src/fonts/material-icons-local.css">',
       tabler: '<link rel="stylesheet" href="src/css/tabler-icons.min.css">',
     },
+    /** CSS libraries and frameworks */
     libs: {
       awoo: '<link rel="stylesheet" type="text/css" href="src/css/awoo.min.css">',
+      awooLocal: '<link rel="stylesheet" type="text/css" href="src/css/awoo-local.min.css">',
     },
   };
 
+  // Map of (category, name) → local-variant key, applied when CONFIG.localFonts is true
+  static localOverrides = {
+    "fonts.roboto": ["localFonts", "roboto"],
+    "fonts.nunito": ["localFonts", "nunito"],
+    "fonts.raleway": ["localFonts", "raleway"],
+    "icons.material": ["icons", "materialLocal"],
+    "libs.awoo": ["libs", "awooLocal"],
+  };
+
+  /**
+   * Initialise the component with shadow DOM
+   * Creates an open shadow root for style encapsulation
+   */
   constructor() {
     super();
 
@@ -28,42 +55,57 @@ class Component extends HTMLElement {
     });
   }
 
+  /**
+   * Resolve a resource link for the given category/name, honouring CONFIG.localFonts.
+   * @param {string} category - One of "fonts", "icons", "libs".
+   * @param {string} name - Resource name within the category.
+   * @returns {string} HTML <link> tag for the resource.
+   */
+  getResource(category, name) {
+    if (typeof CONFIG !== "undefined" && CONFIG.localFonts) {
+      const override = Component.localOverrides[`${category}.${name}`];
+      if (override) {
+        const [cat, key] = override;
+        return this.resources[cat][key];
+      }
+    }
+    return this.resources[category][name];
+  }
+
+  /**
+   * Returns custom styles for the component
+   * @returns {string|null} CSS styles or null
+   */
   style() {
     return null;
   }
 
+  /**
+   * Returns the HTML template for the component
+   * @returns {string|null} HTML template or null
+   */
   template() {
     return null;
   }
 
+  /**
+   * Returns array of external resources to import
+   * @returns {Array<string>} Array of resource imports
+   */
   imports() {
     return [];
   }
 
   /**
-   * Reference an external CSS file.
-   * OBS: External style loading not yet fully supported with web components, causes flickering.
-   * @param {string} path
-   * @returns {void}
-   */
-  set stylePath(path) {
-    this.resources.style = `<link rel="preload" as="style" href="${path}" onload="this.rel='stylesheet'">`;
-  }
-
-  /**
-   * Return all the imports that a component requested.
+   * Return all the imports that a component requested
    * @returns {Array<string>} imports
    */
   get getResources() {
-    const imports = this.imports();
-
-    if (this.resources?.style) imports.push(this.resources.style);
-
-    return imports;
+    return this.imports();
   }
 
   /**
-   * Return inline style tag.
+   * Return inline style tag
    * @returns {string}
    */
   async loadStyles() {
@@ -75,7 +117,7 @@ class Component extends HTMLElement {
   }
 
   /**
-   * Build the component's HTML body.
+   * Build the component's HTML body
    * @returns {string} html
    */
   async buildHTML() {
@@ -83,7 +125,7 @@ class Component extends HTMLElement {
   }
 
   /**
-   * Create a reference for manipulating DOM elements.
+   * Create a reference proxy for manipulating DOM elements within the component's shadow DOM
    * @returns {Proxy<HTMLElement | boolean>}
    */
   createRef() {
@@ -107,6 +149,10 @@ class Component extends HTMLElement {
     });
   }
 
+  /**
+   * Render the component's HTML and update references
+   * @returns {Promise<void>}
+   */
   async render() {
     this.shadow.innerHTML = await this.buildHTML();
     this.refs = this.createRef();
