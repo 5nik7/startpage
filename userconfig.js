@@ -11,7 +11,7 @@ const default_configuration = {
   overrideStorage: true,
   temperature: {
     location: "Yakima",
-    scale: "C",
+    scale: "F",
     // Optional OpenWeatherMap API key — get a free one at https://openweathermap.org/api
     // Leave empty to keep the placeholder and skip the network request.
     appId: "",
@@ -46,9 +46,26 @@ const default_configuration = {
   openLastVisitedTab: true,
   tabs: [
     {
-      name: "myself",
+      name: "one",
       background_url: "src/img/banners/banner_11.gif",
       categories: [
+        {
+          name: "development",
+          links: [
+            {
+              name: "github",
+              url: "https://github.com",
+              icon: "brand-github",
+              icon_color: palette.green,
+            },
+            {
+              name: "collab",
+              url: "https://colab.research.google.com",
+              icon: "notebook",
+              icon_color: palette.mauve,
+            },
+          ],
+        },
         {
           name: "workspace",
           links: [
@@ -81,42 +98,7 @@ const default_configuration = {
       ],
     },
     {
-      name: "dev",
-      background_url: "src/img/banners/banner_07.gif",
-      categories: [
-        {
-          name: "development",
-          links: [
-            {
-              name: "github",
-              url: "https://github.com",
-              icon: "brand-github",
-              icon_color: palette.green,
-            },
-            {
-              name: "stackoverflow",
-              url: "https://stackoverflow.com",
-              icon: "brand-stackoverflow",
-              icon_color: palette.peach,
-            },
-            {
-              name: "duckdb",
-              url: "https://app.motherduck.com",
-              icon: "file-type-sql",
-              icon_color: palette.red,
-            },
-            {
-              name: "collab",
-              url: "https://colab.research.google.com",
-              icon: "notebook",
-              icon_color: palette.mauve,
-            },
-          ],
-        },
-      ],
-    },
-    {
-      name: "chi ll",
+      name: "two",
       background_url: "src/img/banners/banner_15.gif",
       categories: [
         {

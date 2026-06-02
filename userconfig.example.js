@@ -37,7 +37,7 @@ const default_configuration = {
     default: "d",
   },
   keybindings: {
-    "s": "search-bar",
+    s: "search-bar",
   },
   disabled: [],
   localIcons: true,
