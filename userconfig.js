@@ -14,7 +14,7 @@ const default_configuration = {
     scale: "F",
     // Optional OpenWeatherMap API key — get a free one at https://openweathermap.org/api
     // Leave empty to keep the placeholder and skip the network request.
-    appId: "",
+    appId: "0c9ff86cf3d7a6d5ecdadd822ad37555",
   },
   clock: {
     format: "k:i p",
@@ -49,6 +49,17 @@ const default_configuration = {
       name: "one",
       background_url: "src/img/banners/banner_11.gif",
       categories: [
+        {
+          name: "me",
+          links: [
+            {
+              name: "njen.io",
+              url: "https://njen.io",
+              icon: "at",
+              icon_color: palette.teal,
+            },
+          ],
+        },
         {
           name: "development",
           links: [
