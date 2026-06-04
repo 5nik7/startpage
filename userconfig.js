@@ -12,9 +12,6 @@ const default_configuration = {
   temperature: {
     location: "Yakima",
     scale: "F",
-    // Optional OpenWeatherMap API key — get a free one at https://openweathermap.org/api
-    // Leave empty to keep the placeholder and skip the network request.
-    appId: "",
   },
   clock: {
     format: "k:i p",
