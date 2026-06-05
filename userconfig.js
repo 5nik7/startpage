@@ -12,19 +12,12 @@ const default_configuration = {
   temperature: {
     location: "Yakima",
     scale: "F",
+    appId: "",
   },
   clock: {
     format: "k:i p",
     icon_color: palette.maroon,
   },
-  additionalClocks: [
-    {
-      label: "UA",
-      timezone: "Europe/Kyiv",
-      format: "h:i",
-      icon_color: palette.peach,
-    },
-  ],
   search: {
     engines: {
       p: ["https://www.perplexity.ai/search/?q=", "PerplexityAI"],
